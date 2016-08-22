@@ -20,7 +20,7 @@ import="com.yuxiaoli.pojo.*,java.util.*"%>
  	<div id="LeftIndext">
 		<div class="menu">
          <ul>
-            <li>Customer管理   
+            <li><a href="${pageContext.request.contextPath }/customer/findAllCutomer.action">Customer管理</a>
             </li>
             <li>Film管理   
             </li>
