@@ -28,9 +28,12 @@ public class CustomerController {
 	
 	//通过用户名来查找Customer
 	@RequestMapping("/login")
-	public String login(HttpServletRequest request,@RequestParam("first_name")String first_name) throws Exception{
+	public String login(HttpServletRequest request,@RequestParam(value="first_name",required=false)String first_name ) throws Exception{
 		/*int page=Integer.parseInt(request.getParameter("page"));
 		request.setAttribute("page", page);*/
+		if(first_name==null){
+			return "login";
+		}
 		request.setCharacterEncoding("utf-8");
 		Customer customer=customerService.findCustomerByFirst_name(first_name);
 		if(customer!=null){

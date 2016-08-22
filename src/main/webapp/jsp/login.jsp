@@ -37,7 +37,7 @@
 				<div class="error"></div>
 				<input type="text" name="first_name" placeholder="用户名" ><br>
 				<input type="password" name="password" placeholder="密码"><br>
-				<input type="button" value="登录" class="btn" onclick="return check()">
+				<input type="button" value="登录" class="btn" onclick="return check()"><br/>
 		<%
         	Object object=request.getAttribute("msg");
        		 if(object!=null){
