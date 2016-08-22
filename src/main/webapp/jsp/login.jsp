@@ -38,6 +38,14 @@
 				<input type="text" name="first_name" placeholder="用户名" ><br>
 				<input type="password" name="password" placeholder="密码"><br>
 				<input type="button" value="登录" class="btn" onclick="return check()">
+		<%
+        	Object object=request.getAttribute("msg");
+       		 if(object!=null){
+        		String msg=(String)object;
+        		//String massage=new String(msg.getBytes("iso8859-1"),"utf-8");
+        		out.print(msg);
+        	}
+        %>
 			</fieldset>
 		</form>
 	</div>

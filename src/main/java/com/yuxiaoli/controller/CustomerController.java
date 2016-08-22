@@ -31,11 +31,13 @@ public class CustomerController {
 	public String login(HttpServletRequest request,@RequestParam("first_name")String first_name) throws Exception{
 		/*int page=Integer.parseInt(request.getParameter("page"));
 		request.setAttribute("page", page);*/
+		request.setCharacterEncoding("utf-8");
 		Customer customer=customerService.findCustomerByFirst_name(first_name);
 		if(customer!=null){
 			request.getSession().setAttribute("username", first_name);
 			return "forward:findAllCutomer.action";
 		}else{
+			request.setAttribute("msg", "error username!");
 			return "login";
 		}
 		
@@ -92,7 +94,7 @@ public class CustomerController {
 		customerService.addCustomer(customer);
 		
 		ModelAndView modelAndView=new ModelAndView();
-		modelAndView.addObject("msg","添加成功！");
+		modelAndView.addObject("msg","add customer success!");
 		modelAndView.setViewName("addCustomer");
 		return modelAndView;
 	}
@@ -121,7 +123,7 @@ public class CustomerController {
 		customerService.updateCustomer(customer);
 		ModelAndView modelAndView=new ModelAndView();
 		
-		modelAndView.addObject("msg","修改成功！");
+		modelAndView.addObject("msg","update customer success!");
 		modelAndView.setViewName("editCustomer");
 		return modelAndView;
 	}
@@ -132,7 +134,7 @@ public class CustomerController {
 		customerService.deleteCustomerById(id);
 		ModelAndView modelAndView=new ModelAndView();
 		
-		modelAndView.addObject("msg","删除成功！");
+		modelAndView.addObject("msg","delete customer success!");
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}
